@@ -10,6 +10,7 @@
 :root {
   /* colors */
   --primary-color: crimson;
+  --body-color: crimson;
   --panel-color: #fff;
   --text-color: #000;
   --black-light-color: #707070;
@@ -28,7 +29,22 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--primary-color);
+  background-color: var(--body-color);
+}
+
+body.dark {
+  /* colors */
+  --primary-color: crimson;
+  --body-color: #122033;
+  --panel-color: #101c2c;
+  --text-color: #989eb3;
+  --black-light-color: #989eb3;
+  --border-color: #4d4c4c;
+  --toggle-color: #122033;
+  --box1-color: #3a3b3c;
+  --box2-color: #3a3b3c;
+  --box3-color: #3a3b3c;
+  --title-icon-color: #989eb3;
 }
 
 nav {
@@ -91,7 +107,6 @@ nav .menu-items {
 .menu-items li a:hover::before {
   content: "";
   position: absolute;
-  /* left: -7px; */
   height: 5px;
   width: 5px;
   border-radius: 50%;
@@ -119,4 +134,49 @@ nav .menu-items {
 .menu-items li a:hover i,
 .menu-items li a:hover .link-name {
   color: var(--primary-color);
+}
+
+.menu-items .mode {
+  display: flex;
+  align-items: center;
+}
+
+.menu-items .mode-toggle {
+  position: absolute;
+  right: 14px;
+  height: 50px;
+  min-width: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.mode-toggle .switch {
+  position: relative;
+  display: inline-block;
+  height: 22px;
+  width: 40px;
+  border-radius: 25px;
+  background-color: var(--toggle-color);
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  background-color: var(--panel-color);
+  border-radius: 50%;
+  transition: var(--tran-03);
+}
+
+body.dark .switch::before {
+  left: auto;
+  right: 5px;
 }
